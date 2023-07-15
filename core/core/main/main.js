@@ -2,12 +2,13 @@
  * @Author: fengdakang
  * @Date: 2023-02-11 18:51:03
  * @LastEditors: fengdakang
- * @LastEditTime: 2023-07-15 22:05:27
- * @FilePath: \person-tools\core\main\main.js
+ * @LastEditTime: 2023-07-16 00:18:24
+ * @FilePath: \core\core\main\main.js
  * @Description: 程序主入口
  * 
  */
 const { app, BrowserWindow, ipcMain } = require('electron')
+const ipcCore = require('../src/ipc/ipc.js')
 const path = require('path')
 
 const createWindow = () => {
@@ -44,8 +45,8 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit()
 })
 
-ipcMain.on('set-title', (event, arg) => {
-  debugger
-  console.log('create-file', event, arg)
-  // folderLoad.getDefaultFolderList()
+// ipcMain 模块
+ipcMain.on('controller', (event, arg) => {
+  const _ipcCore = new ipcCore();
+  _ipcCore.main(event, arg)
 })
