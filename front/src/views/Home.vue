@@ -1,23 +1,17 @@
-<!--
- * @Author: FengDaKang 31929672+raincry318@users.noreply.github.com
- * @Date: 2023-07-15 17:05:32
- * @LastEditors: FengDaKang 31929672+raincry318@users.noreply.github.com
- * @LastEditTime: 2023-07-15 17:40:01
- * @FilePath: \front\src\views\Home.vue
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
--->
 <script setup>
 import { ref, onMounted, getCurrentInstance } from "vue";
+import applicationPage from './pages/application/Index.vue'
+import worktextPage from './pages/worktext/Index.vue'
 </script>
 
 <template>
   <div class="home">
     <el-row>
       <el-col :span="8">
-        
+        <application-page></application-page>
       </el-col>
       <el-col :span="8">
-
+        <worktext-page></worktext-page>
       </el-col>
       <el-col :span="8">
         

@@ -1,8 +1,8 @@
 /*
  * @Author: kukuzhilv 1099273256@qq.com
  * @Date: 2023-07-12 09:40:08
- * @LastEditors: kukuzhilv 1099273256@qq.com
- * @LastEditTime: 2023-07-13 10:34:36
+ * @LastEditors: fengdakang
+ * @LastEditTime: 2023-07-15 17:56:03
  * @FilePath: \front\src\main.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -12,7 +12,7 @@ import router from './routes/router.js'
 
 // 引入通用样式
 import '@/assets/styles/common.less'
-import '@/assets/styles/element-ui-nj.less'
+import '@/assets/styles/element-ui-work.less'
 
 // 引入element-plus
 import ElementPlus from 'element-plus'
