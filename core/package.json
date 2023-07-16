@@ -7,6 +7,8 @@
     "start": "electron ."
   },
   "dependencies": {
+    "icon-extractor": "^1.0.3",
+    "icon-extractor-labs": "^1.1.2",
     "sqlite3": "^5.1.6"
   },
   "devDependencies": {

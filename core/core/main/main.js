@@ -2,14 +2,16 @@
  * @Author: fengdakang
  * @Date: 2023-02-11 18:51:03
  * @LastEditors: fengdakang
- * @LastEditTime: 2023-07-16 00:18:24
+ * @LastEditTime: 2023-07-16 23:51:03
  * @FilePath: \core\core\main\main.js
  * @Description: 程序主入口
  * 
  */
-const { app, BrowserWindow, ipcMain } = require('electron')
+const { app, BrowserWindow, ipcMain, Menu } = require('electron')
 const ipcCore = require('../src/ipc/ipc.js')
+const _ipcCore = new ipcCore();
 const path = require('path')
+
 
 const createWindow = () => {
   // 创建主视窗
@@ -21,6 +23,9 @@ const createWindow = () => {
     }
   })
 
+  // 默认最大化
+  mainWindow.maximize()
+
   // nodeIntegration: true,
   // enableRemoteModule: true,
   // contextIsolation: false
@@ -31,6 +36,8 @@ const createWindow = () => {
 
   // 打开开发工具
   mainWindow.webContents.openDevTools()
+
+  Menu.setApplicationMenu(null)
 }
 
 app.whenReady().then(() => {
@@ -47,6 +54,13 @@ app.on('window-all-closed', () => {
 
 // ipcMain 模块
 ipcMain.on('controller', (event, arg) => {
-  const _ipcCore = new ipcCore();
   _ipcCore.main(event, arg)
+})
+
+ipcMain.handle('reController', async (event, arg) => {
+  return await _ipcCore.main(event, arg)
+})
+
+ipcMain.handle('common', async (event, arg) => {
+  return await _ipcCore.common(event, arg)
 })
